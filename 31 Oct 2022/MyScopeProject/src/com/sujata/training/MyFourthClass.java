@@ -6,5 +6,7 @@ public class MyFourthClass {
 
 	public void call() {
 		MySecondClass ob1=new MySecondClass();
+		
+		
 	}
 }
