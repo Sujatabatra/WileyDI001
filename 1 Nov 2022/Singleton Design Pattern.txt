@@ -1,0 +1,4 @@
+Scenario: We have multi user application, and one million users using our application, and all user need an object of class "Demo" but no user will going to change the state of that object through out its life cycle.
+How Many objects you will be creating ?
+
+One object and will be sharing that object with all : Singleton Design Pattern
