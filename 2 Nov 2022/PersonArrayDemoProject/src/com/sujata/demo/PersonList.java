@@ -17,7 +17,7 @@ public class PersonList {
 	
 	public void displayPersonList() {
 		for(int index=0;index<totalNoOfPersons;index++) {
-			System.out.println(persons[index].getId()+" "+persons[index].getName()+" "+persons[index].getAge());
+			persons[index].display();
 		}
 	}
 	
