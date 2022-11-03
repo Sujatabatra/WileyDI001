@@ -5,7 +5,7 @@ package com.sujata.demo;
  * Rules for abstract
  * 1. abstract method don't have any body
  * 2. If a class contains even a single abstract method then it is mandatory for us to mark that class abstract
- * We can instantiate( create object of abstract class)
+ * We cannot instantiate( create object of abstract class)
  */
 abstract public class Car {
 
