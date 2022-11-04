@@ -7,19 +7,19 @@ public class MyFinallyKeywordSecondDemoClass {
 
 	
 	static public void divide(int number1,int number2) {
-		try {
+//		try {
 			int result=number1/number2;
 			System.out.println("Result of Division : "+result);
 			System.out.println("Good Bye from try!");
 			return;
-		}
-		catch(NegativeArraySizeException exception) {
-			System.out.println("Something went wrong");
-		}
-		finally {
-			System.out.println("Hi I am finally block");
-		}
-		System.out.println("Good Bye from divide");
+//		}
+//		catch(NegativeArraySizeException exception) {
+//			System.out.println("Something went wrong");
+//		}
+//		finally {
+//			System.out.println("Hi I am finally block");
+//		}
+//		System.out.println("Good Bye from divide");
 	}
 	
 	public static void main(String[] args) {
