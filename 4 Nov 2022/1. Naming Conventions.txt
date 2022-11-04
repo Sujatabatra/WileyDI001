@@ -1,0 +1,6 @@
+Class Name/interface name : PascalCase
+MethodName : camelCase
+variable name: camelCase
+object name : camelCase
+Constants : UPPER_CASE
+package : lowercase
