@@ -30,7 +30,8 @@ public class MySecondDemo {
 		
 		/*
 		 * equals() method is of Object class,
-		 * and its behavior is to check whether two reference variable pointing to same object on heap
+		 * and its behavior is to check whether two reference variable pointing to same object on heap,
+		 * and if we want to change the behavior of equals() override it.
 		 */
 		
 		if(p1.equals(p2))
