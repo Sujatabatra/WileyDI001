@@ -38,7 +38,9 @@ public class MySecondDemo {
 			System.out.println("p1 and p2 are same");
 		else
 			System.out.println("p1 and p2 are not same");
-		
+	
+		System.out.println("p1 hashcode : "+p1.hashCode());
+		System.out.println("p2 hashcode : "+p2.hashCode());
 	}
 
 }

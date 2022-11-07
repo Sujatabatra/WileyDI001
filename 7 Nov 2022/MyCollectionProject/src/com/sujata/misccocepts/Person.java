@@ -32,6 +32,10 @@ public class Person {
 	}
 	
 	@Override
+	public int hashCode() {
+		return Objects.hash(pId, pName);
+	}
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
