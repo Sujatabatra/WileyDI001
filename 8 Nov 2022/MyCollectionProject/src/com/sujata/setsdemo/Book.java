@@ -32,6 +32,6 @@ public class Book implements Comparable<Book> {
 			return -1;
 		else if(this.equals(book2))
 			return 0;
-		return 0;
+		return 1;
 	}
 }
