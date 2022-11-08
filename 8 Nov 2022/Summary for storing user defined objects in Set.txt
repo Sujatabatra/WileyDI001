@@ -1,0 +1,8 @@
+While Creating collection for user defined types
+1. if storing objects in HashSet or LinkedHashSet : override equals() and hashCode()
+2. If storing objects in TreeSet : either make use of Comparable in POJO or make use of Comparator and supply comparator implementation class object in TreeSet Constructor .
+
+Note : while Comparing objects :
+if first object is greater return 1
+if second object is greater return -1
+if both objects are equal return 0
