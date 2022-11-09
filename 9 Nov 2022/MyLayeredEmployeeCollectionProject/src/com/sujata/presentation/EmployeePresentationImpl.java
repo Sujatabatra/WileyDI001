@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Scanner;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.EmployeePaySlip;
 import com.sujata.service.EmployeeService;
 import com.sujata.service.EmployeeServiceImpl;
 
@@ -85,7 +86,13 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 				System.out.println("Employee with ID "+empId+" does not exist");
 			break;
 		case 6:
-			System.out.println("This functionality is under development");
+			System.out.println("Enter Employee ID : ");
+			int employeeId=scanner.nextInt();
+			EmployeePaySlip payslip=employeeService.generatePaySlip(employeeId);
+			if(payslip!=null)
+				System.out.println(payslip);
+			else
+				System.out.println("Employee with id "+employeeId+" does not exist!");
 			break;
 		case 7:
 			System.out.println("Thanks for using Employee Management System");

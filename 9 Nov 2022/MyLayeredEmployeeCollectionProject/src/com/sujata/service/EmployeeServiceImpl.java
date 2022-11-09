@@ -3,6 +3,7 @@ package com.sujata.service;
 import java.util.Collection;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.EmployeePaySlip;
 import com.sujata.persistence.EmployeeDao;
 import com.sujata.persistence.EmployeeDaoImpl;
 
@@ -49,6 +50,28 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employee.setEmpSalary(employee.getEmpSalary()+increment);
 		employeeDao.insertRecord(employee);
 		return true;
+	}
+
+	/*
+	 * Business Rule
+	 * AllowancesA : 18% of salary
+	 * AllowanceB : 12% of salary
+	 * Dedeuction : 8% of salary
+	 */
+	@Override
+	public EmployeePaySlip generatePaySlip(int employeeId) {
+		Employee employee=employeeDao.searchRecord(employeeId);
+		if(employee!=null) {
+			double allowanceA=.18*employee.getEmpSalary();
+			double allowanceB=.12*employee.getEmpSalary();
+			double deduction=.08*employee.getEmpSalary();
+			double totalSalary=employee.getEmpSalary()+allowanceA+allowanceB-deduction;
+			
+			EmployeePaySlip employeePaySlip=new EmployeePaySlip(employee, allowanceA, allowanceB, deduction,totalSalary);
+			return employeePaySlip;
+		}
+		return null;
+		
 	}
 
 }

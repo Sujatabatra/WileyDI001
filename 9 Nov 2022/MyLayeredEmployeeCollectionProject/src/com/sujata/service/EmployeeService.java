@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.sujata.entity.Employee;
+import com.sujata.entity.EmployeePaySlip;
 
 public interface EmployeeService {
 
@@ -16,4 +17,6 @@ public interface EmployeeService {
 	boolean deleteEmployee(int id);
 	
 	boolean incrementSalary(int id,double increment);
+	
+	EmployeePaySlip generatePaySlip(int employeeId);
 }
