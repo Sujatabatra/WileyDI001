@@ -23,8 +23,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public Employee insertRecord(Employee employee) {
-		// TODO Auto-generated method stub
 		return EmployeeDataBase.getEmployeeList().put(employee.getEmpId(), employee);
+	}
+
+	@Override
+	public Employee deleteRecord(int id) {
+		
+		return EmployeeDataBase.getEmployeeList().remove(id);
 	}
 
 }

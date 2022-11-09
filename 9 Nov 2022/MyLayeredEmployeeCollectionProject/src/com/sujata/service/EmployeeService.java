@@ -12,4 +12,8 @@ public interface EmployeeService {
 	Employee searchEmployeeById(int id);
 	
 	boolean addEmployee(Employee employee);
+	
+	boolean deleteEmployee(int id);
+	
+	boolean incrementSalary(int id,double increment);
 }

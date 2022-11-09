@@ -31,4 +31,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return true;
 	}
 
+	@Override
+	public boolean deleteEmployee(int id) {
+		Employee employee=employeeDao.deleteRecord(id);
+		if(employee!=null) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean incrementSalary(int id, double increment) {
+		Employee employee=employeeDao.searchRecord(id);
+		if(employee==null) {
+			return false;
+		}
+		employee.setEmpSalary(employee.getEmpSalary()+increment);
+		employeeDao.insertRecord(employee);
+		return true;
+	}
+
 }

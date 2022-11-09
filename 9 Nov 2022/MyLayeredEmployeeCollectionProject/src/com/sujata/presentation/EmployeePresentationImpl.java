@@ -63,14 +63,26 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 			if(employeeService.addEmployee(newEmployee))
 				System.out.println("Employee Record Added");
 			else
-				System.out.println("Employee with id "+newEmployee.getEmpId()+" already exist!");
+				System.out.println("Employee with id "+newEmployee.getEmpId()+" already exist, so cannot add it as a new employee!");
 			
 			break;
 		case 4:
-			System.out.println("This functionality is under development");
+			System.out.println("Enter Employee ID : ");
+			int eId=scanner.nextInt();
+			if(employeeService.deleteEmployee(eId))
+				System.out.println("Employee with id "+eId+" deleted");
+			else
+				System.out.println("Employee with id "+eId+" does not exist");
 			break;
 		case 5:
-			System.out.println("This functionality is under development");
+			System.out.println("Enter Employee ID : ");
+			int empId=scanner.nextInt();
+			System.out.println("Enter Increment Amount : ");
+			double increment=scanner.nextDouble();
+			if(employeeService.incrementSalary(empId, increment))
+				System.out.println("Employee with Id "+empId+" salary incremented with amount "+increment);
+			else
+				System.out.println("Employee with ID "+empId+" does not exist");
 			break;
 		case 6:
 			System.out.println("This functionality is under development");
