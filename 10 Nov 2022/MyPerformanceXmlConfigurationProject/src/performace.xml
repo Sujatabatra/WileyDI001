@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Setter Injection -->
+	<bean id="Laura" class="com.sujata.componentproducer.Juggler">
+		<property name="balls" value="5"></property>
+	</bean>
+
+	<bean id="Steph" class="com.sujata.componentproducer.Dancer">
+		<property name="style" value="Salsa"></property>
+	</bean>
+	
+	<bean id="Vic" class="com.sujata.componentproducer.Dancer">
+	<property name="style" value="Moon Walk"></property>
+	</bean>
+	
+	<!-- Constructor Injection -->
+	<bean id="Gemma" class="com.sujata.componentproducer.Singer">
+		<constructor-arg name="song" value="Baby Go Back"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="Maria" class="com.sujata.componentproducer.Musician"></bean>
+	
+</beans>
