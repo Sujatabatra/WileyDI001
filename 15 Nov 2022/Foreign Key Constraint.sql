@@ -1,9 +1,9 @@
 /*
 Foreign Key : primary key of one table can be a foreign key to another table
 */
-
+-- parent table
 create table department(
-departmentId varchar(10) primary key,
+departmentId varchar(10) primary key, -- primary key
 departmentName varchar(35),
 location varchar(25),
 capacity int);
