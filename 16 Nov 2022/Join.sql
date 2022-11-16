@@ -67,3 +67,10 @@ on e.dept_id=d.departmentId;
 select empId,name,dept_id,departmentName,location,designation,salary
 from emp e join department d
 on e.dept_id=d.departmentId;
+
+select empId,name,dept_id,departmentName,location,designation,salary
+from emp e cross join department d;
+
+select * from emp;
+
+select * from department;
