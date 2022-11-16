@@ -18,3 +18,16 @@ where designation="Representative";
 
 delete from employee
 where employeeId=110;
+
+delete from employee LIMIT 2;
+
+select * from employee;
+/*
+Limit offset rowcount
+offset starts with 0
+*/
+select * from employee LIMIT 3,2;
+
+update employee
+set salary=salary+100
+LIMIT 3;
