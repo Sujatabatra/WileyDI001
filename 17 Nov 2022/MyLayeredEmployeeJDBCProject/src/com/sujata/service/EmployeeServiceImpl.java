@@ -24,12 +24,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean addEmployee(Employee employee) {
-		Employee emp=employeeDao.searchRecord(employee.getEmpId());
-		if(emp!=null) {
-			return false;
-		}
-		employeeDao.insertRecord(employee);
-		return true;
+		if(employeeDao.insertRecord(employee)>0)
+			return true;
+		return false;
 	}
 
 	@Override
@@ -41,13 +38,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean incrementSalary(int id, double increment) {
-		Employee employee=employeeDao.searchRecord(id);
-		if(employee==null) {
-			return false;
-		}
-		employee.setEmpSalary(employee.getEmpSalary()+increment);
-		employeeDao.insertRecord(employee);
-		return true;
+		if(employeeDao.updateSalary(id,increment)>0)
+			return true;
+		return false;
 	}
 
 	/*

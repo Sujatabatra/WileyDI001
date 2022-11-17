@@ -105,8 +105,41 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee insertRecord(Employee employee) {
-		return null;
+	public int insertRecord(Employee employee) {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		int rows=0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi001", "root", "sujata");
+
+			preparedStatement = connection.prepareStatement("INSERT INTO EMPLOYEE VALUES(?,?,?,?,?,?)");
+
+			preparedStatement.setInt(1, employee.getEmpId());
+			preparedStatement.setString(2, employee.getEmpName());
+			preparedStatement.setString(3, employee.getEmpDesignation());
+			preparedStatement.setString(4, employee.getEmpDepartment());
+			preparedStatement.setDouble(5, employee.getEmpSalary());
+			preparedStatement.setObject(6, employee.getDateOfJoining());
+
+			rows = preparedStatement.executeUpdate();
+
+			return rows;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				4.Close
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return rows;
 	}
 
 	@Override
@@ -123,6 +156,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			preparedStatement = connection.prepareStatement("DELETE FROM EMPLOYEE WHERE EMPLOYEEID=?");
 
 			preparedStatement.setInt(1, id);
+
+			rows = preparedStatement.executeUpdate();
+
+			return rows;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				4.Close
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return rows;
+	}
+
+	@Override
+	public int updateSalary(int id, double increment) {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		int rows=0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi001", "root", "sujata");
+
+			preparedStatement = connection.prepareStatement("UPDATE EMPLOYEE SET SALARY=SALARY+? WHERE EMPLOYEEID=?");
+
+			preparedStatement.setDouble(1, increment);
+			preparedStatement.setInt(2, id);
 
 			rows = preparedStatement.executeUpdate();
 

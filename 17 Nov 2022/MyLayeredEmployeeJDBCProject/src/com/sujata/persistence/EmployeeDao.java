@@ -12,6 +12,7 @@ public interface EmployeeDao {
 
 	Collection<Employee> getAllRecords();
 	Employee searchRecord(int id);
-	Employee insertRecord(Employee employee);
+	int insertRecord(Employee employee);
 	int deleteRecord(int id);
+	int updateSalary(int id,double increment);
 }
