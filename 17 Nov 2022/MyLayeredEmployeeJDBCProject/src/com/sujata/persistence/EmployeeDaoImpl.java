@@ -60,7 +60,47 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public Employee searchRecord(int id) {
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+
+		Employee employee = null;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi001", "root", "sujata");
+
+			preparedStatement = connection.prepareStatement("SELECT * FROM EMPLOYEE WHERE EMPLOYEEID=?");
+
+			preparedStatement.setInt(1, id);
+// resultset is pointing above first row
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				int eid = resultSet.getInt("EMPLOYEEID");
+				String name = resultSet.getString("NAME");
+				String desig = resultSet.getString("DESIGNATION");
+				String deptt = resultSet.getString("DEPARTMENT");
+				double sal = resultSet.getDouble("SALARY");
+				LocalDate doj = resultSet.getDate("DOJ").toLocalDate();
+
+				employee = new Employee(eid, name, desig, deptt, sal, doj);
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				4.Close
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return employee;
 
 	}
 
@@ -70,9 +110,37 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee deleteRecord(int id) {
+	public int deleteRecord(int id) {
 
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		int rows=0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi001", "root", "sujata");
+
+			preparedStatement = connection.prepareStatement("DELETE FROM EMPLOYEE WHERE EMPLOYEEID=?");
+
+			preparedStatement.setInt(1, id);
+
+			rows = preparedStatement.executeUpdate();
+
+			return rows;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				4.Close
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return rows;
 	}
 
 }
