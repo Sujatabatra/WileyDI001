@@ -8,14 +8,17 @@ public class MainPopCornStore {
 
 		popCornStore.buy(new SaltedPopCorn());
 		
-		popCornStore.buy(new PopCorn() {	
-			@Override
-			public void pop() {
-				System.out.println("Salted Caramel PopCorn Popping");
-				
-			}
-		});
+//		popCornStore.buy(new PopCorn() {	
+//			@Override
+//			public void pop() {
+//				System.out.println("Salted Caramel PopCorn Popping");
+//				
+//			}
+//		});
 		
+		popCornStore.buy(()->System.out.println("Salted Caramel PopCorn Popping"));
+				
+			
 		PopCorn p1=new PopCorn() {
 			
 			@Override
