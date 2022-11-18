@@ -21,10 +21,17 @@ public class MainPopCornStore {
 			@Override
 			public void pop() {
 				System.out.println("Butter PopCorn Popping");
+				System.out.println("Yum Yum Yum");
 				
+			}
+			
+			public void quantity() {
+				System.out.println("2 ounces of butter popcorn");
 			}
 		};
 		
+		p1.pop();
+//		p1.quantity();
 		popCornStore.buy(p1);
 		
 	}
