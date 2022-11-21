@@ -30,6 +30,11 @@ public class BookDiscount {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+
+	@Override
+	public String toString() {
+		return "BookDiscount [book=" + book + ", discount=" + discount + "]";
+	}
 	
 	
 }
