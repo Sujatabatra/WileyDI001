@@ -13,4 +13,12 @@ public class Calculator {
 		else
 			throw new NegativeNumberException("Numbers cannot be Negative");
 	}
+	
+	
+	/*
+	 * Requirement - R002 : Add two Positive Integers
+	 */
+	public int add(int number1,int number2)throws NegativeNumberException{
+		return 0;
+	}
 }
