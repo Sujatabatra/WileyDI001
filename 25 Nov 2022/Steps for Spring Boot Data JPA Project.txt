@@ -1,0 +1,13 @@
+1. Create Spring Boot Staerter project by selecting the sependecy for "Spring Data JPA", "Lombok"(Optional),"MySQL Driver"
+
+2. Write Properties in application.properties file , to configure JPA and database
+
+3. create Entity(POJO) and map that POJO to persist in database (@Entity, @Id)
+
+4. Annotate main class with @EntityScan(basePackages ="packages for Entity/POJO")
+
+5. Create Interface by extending JPARepository
+
+6. Annotate interface with @Repository
+
+7. Annotate main class with @EnableJpaRepositories(basePackages =="packages for repository interfaces")
