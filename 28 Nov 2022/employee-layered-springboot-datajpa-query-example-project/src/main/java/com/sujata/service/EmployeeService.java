@@ -21,4 +21,8 @@ public interface EmployeeService {
 	EmployeePaySlip generatePaySlip(int employeeId);
 	
 	List<Employee> getEmployeesByDepartment(String deptt);
+	
+	List<Employee> searchByDesignation(String designation);
+	
+	boolean deleteEmployeeByName(String name);
 }

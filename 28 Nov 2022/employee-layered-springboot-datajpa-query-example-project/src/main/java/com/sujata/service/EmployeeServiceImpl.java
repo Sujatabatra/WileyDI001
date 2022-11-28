@@ -87,4 +87,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.findByEmpDepartment(deptt);
 	}
 
+	@Override
+	public List<Employee> searchByDesignation(String designation) {
+		
+		return employeeDao.searchEmployeeByDesignation(designation);
+		
+	}
+
+	@Override
+	public boolean deleteEmployeeByName(String name) {
+		
+		return employeeDao.deleteByName(name)>0;
+	}
+
 }

@@ -32,7 +32,9 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 		System.out.println("5. Increment Salary");
 		System.out.println("6. Generate PaySlip");
 		System.out.println("7. Search Employees By Department");
-		System.out.println("8. Exit");
+		System.out.println("8. Search Employees By Designation");
+		System.out.println("9. Delete Employee By Name");
+		System.out.println("10. Exit");
 		System.out.println("============================");
 
 	}
@@ -121,6 +123,26 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 				System.out.println("No employee working in department : "+dep);
 			break;
 		case 8:
+			System.out.println("Enter Designation : ");
+			String des=scanner.next();
+			List<Employee> designationWiseEmpList=employeeService.searchByDesignation(des);
+			if(designationWiseEmpList.size()!=0) {
+				for(Employee e:designationWiseEmpList) {
+					System.out.println(e);
+				}
+			}
+			else
+				System.out.println("No employee working as : "+des);
+			break;
+		case 9:
+			System.out.println("Enter Employee name : ");
+			String na=scanner.next();
+			if(employeeService.deleteEmployeeByName(na))
+				System.out.println("Employee Record Deleted");
+			else
+				System.out.println("Employee Record Not Deleted");
+			break;
+		case 10:
 			System.out.println("Thanks for using Employee Management System");
 			System.exit(0);
 		default:
