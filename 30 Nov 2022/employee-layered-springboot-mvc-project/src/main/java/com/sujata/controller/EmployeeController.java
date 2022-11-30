@@ -2,6 +2,7 @@ package com.sujata.controller;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -81,6 +82,51 @@ public class EmployeeController {
 		modelAndView.setViewName("ShowAllEmployees");
 		return modelAndView;
 	}
+	//============================================================
 	
+	@RequestMapping("/searchEmployeeByIDInputPage")
+	public ModelAndView searchEmployeeByIDInputPageController() {
+		return new ModelAndView("InputIdForSearch");
+	}
 
+	@RequestMapping("/searchEmployeeByID")
+	public ModelAndView searchEmployeeById(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+		int id=Integer.parseInt(request.getParameter("empId"));
+		
+		Employee employee=employeeService.searchEmployeeById(id);
+		if(employee!=null) {
+			modelAndView.addObject("employee", employee);
+			modelAndView.setViewName("ShowEmployee");
+		}
+		else {
+			modelAndView.addObject("message", "Employee with ID "+id+" does not exist");
+			modelAndView.setViewName("Output");
+		}
+		
+		return modelAndView;
+	}
+	//=============================================================
+	
+	@RequestMapping("/searchEmployeeByDepartmentInputPage")
+	public ModelAndView searchEmployeeByDepartmentInputPageController() {
+		return new ModelAndView("InputDepartmentForSearch");
+	}
+	
+	@RequestMapping("/searchEmployeeByDepartment")
+	public ModelAndView searchEmployeeByDepartmentController(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+		String deptt=request.getParameter("department");
+		List<Employee> empList=employeeService.getEmployeesByDepartment(deptt);
+		
+		if(empList.size()>0) {
+			modelAndView.addObject("employees", empList);
+			modelAndView.setViewName("ShowAllEmployees");
+		}else {
+			modelAndView.setViewName("Output");
+			modelAndView.addObject("message", "No Employee works in department "+deptt);
+		}
+		
+		return modelAndView;
+	}
 }
