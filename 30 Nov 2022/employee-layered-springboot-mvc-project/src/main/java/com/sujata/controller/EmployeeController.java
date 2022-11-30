@@ -24,8 +24,9 @@ public class EmployeeController {
 	public ModelAndView menuPageController() {
 		return new ModelAndView("index");
 	}
-
-	//===== Controller for Delete===================
+	//=============================================================
+	
+	//===== Controllers for Delete=================================
 	@RequestMapping("/deleteEmpPage")
 	public ModelAndView deletePageController() {
 		return new ModelAndView("InputIdForDelete");
@@ -47,9 +48,9 @@ public class EmployeeController {
 
 		return modelAndView;
 	}
-	//==================================================
+	//==============================================================
 	
-	//=============Controller for increment Salary==================
+	//=============Controllers for increment Salary==================
 	@RequestMapping("/incrementSalaryPage")
 	public ModelAndView incrementSalaryPageController() {
 		return new ModelAndView("InputForIncrementSalary");
@@ -71,8 +72,9 @@ public class EmployeeController {
 		modelAndView.setViewName("Output");
 		return modelAndView;
 	}
-	//===========================================================
+	//================================================================
 	
+	//=============Controller for List all Employees==================
 	@RequestMapping("/showAll")
 	public ModelAndView getAllEmployeesController() {
 		ModelAndView modelAndView=new ModelAndView();
@@ -82,8 +84,9 @@ public class EmployeeController {
 		modelAndView.setViewName("ShowAllEmployees");
 		return modelAndView;
 	}
-	//============================================================
+	//===================================================================
 	
+	//=============Controllers for Search Employee By ID==================
 	@RequestMapping("/searchEmployeeByIDInputPage")
 	public ModelAndView searchEmployeeByIDInputPageController() {
 		return new ModelAndView("InputIdForSearch");
@@ -108,6 +111,7 @@ public class EmployeeController {
 	}
 	//=============================================================
 	
+	//=============Controllers for Search Employee By Department Name==================
 	@RequestMapping("/searchEmployeeByDepartmentInputPage")
 	public ModelAndView searchEmployeeByDepartmentInputPageController() {
 		return new ModelAndView("InputDepartmentForSearch");
@@ -129,4 +133,5 @@ public class EmployeeController {
 		
 		return modelAndView;
 	}
+	//============================================================
 }
