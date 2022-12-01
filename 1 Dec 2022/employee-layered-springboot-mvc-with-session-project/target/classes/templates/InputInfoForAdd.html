@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h3 th:text="'Welcome '+${session.user.userName}+'!'"></h3>
+<hr>
+<form action="#" th:action="@{./addEmployee}" th:object="${emp}" method="post">
+
+	Enter Employee ID <input type="text" th:field="*{empId}"><br><br>
+	Enter Employee Name <input type="text" th:field="*{empName}"><br><br>
+	Enter Employee Designation <input type="text" th:field="*{empDesignation}"><br><br>
+	Enter Employee Department <input type="text" th:field="*{empDepartment}"><br><br>
+	Enter Employee Salary <input type="text" th:field="*{empSalary}"><br><br>
+	Enter Employee Date Of Joining<input type="date" name="doj"><br><br>
+	
+	<input type="submit" value="Add Employee">
+</form>
+<!--  
+<form action="./addEmployee">
+	Enter Employee ID <input type="text" name="empId"><br><br>
+	Enter Employee Name <input type="text" name="employeeName"><br><br>
+	Enter Employee Designation <input type="text" name="designation"><br><br>
+	Enter Employee Department <input type="text" name="department"><br><br>
+	Enter Employee Salary <input type="text" name="salary"><br><br>
+	Enter Employee Date Of Joining<input type="date" name="doj"><br><br>
+	<input type="submit" value="Add Employee">
+</form>
+-->
+<br><br>
+<a href="./menu">Go Back to Menu Page</a>
+</body>
+</html>

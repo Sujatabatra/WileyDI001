@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h3 th:text="'Welcome '+${session.user.userName}+'!'"></h3>
+<hr> <!-- Horizontal Row -->
+<h2>List of Employees</h2>
+<table border="1">
+	<!-- tr: Table Row -->
+	<tr>
+		<!-- Table Header -->
+		<th>Employee ID</th>
+		<th>Name</th>
+		<th>Designation</th>
+		<th>Department</th>
+		<th>Salary</th>
+		<th>Date of Joining</th>
+	</tr>
+	<tr th:each="employee : ${employees}">
+	<!-- table data -->
+		<td th:text="${employee.empId}"></td>
+		<td th:text="${employee.empName}"></td>
+		<td th:text="${employee.empDesignation}"></td>
+		<td th:text="${employee.empDepartment}"></td>
+		<td th:text="${employee.empSalary}"></td>
+		<td th:text="${employee.dateOfJoining}"></td>
+	</tr>
+</table>
+<br><br>
+<a href="./menu">Go Back to Menu Page</a>
+</body>
+</html>

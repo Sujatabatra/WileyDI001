@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h3 th:text="'Welcome '+${session.user.userName}+'!'"></h3>
+<hr>
+
+<h2>Employee Pay Slip</h2>
+<table border="1">
+	<!-- tr: Table Row -->
+	<tr>
+		<!-- Table Header -->
+		<th>Name</th>		
+		<th>Allowance A</th>		
+		<th>Allowance B</th>		
+		<th>Deduction</th>		
+		<th>Total Salary</th>		
+</tr>
+	<tr>
+	<!-- table data -->
+		<td th:text="${paySlip.employee.empName}"></td>
+		<td th:text="${paySlip.allowanceA}"></td>
+		<td th:text="${paySlip.allowanceB}"></td>
+		<td th:text="${paySlip.deduction}"></td>
+		<td th:text="${paySlip.totalSalary}"></td>
+	</tr>
+</table>
+<!-- {EmployeePaySlip.employee.empId} -->
+<br><br>
+<a href="./menu">Go Back to Menu Page</a>
+</body>
+</html>

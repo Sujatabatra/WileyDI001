@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h3 th:text="'Welcome '+${session.user.userName}+'!'"></h3>
+<hr>
+<form action="./searchEmployeeByDepartment">
+	Enter Department Name:  <input type="text" name="department"><br><br>
+	<input type="submit" value="Search Employee">
+</form>
+<br><br>
+<a href="./menu">Go Back to Menu Page</a>
+</body>
+</html>
