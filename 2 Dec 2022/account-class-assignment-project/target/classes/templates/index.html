@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DI001 Personal Bank Web App</h1>
+<form action="./login" method="post">
+	Enter Account Id :<input type="text" name="accountId"><br><br>
+	Enter Password : <input type="password" name="pwd"><br><br>
+	<input type="submit" value="Login">
+	
+	<h2 th:text="${message}"></h2>
+</form>
+</body>
+</html>

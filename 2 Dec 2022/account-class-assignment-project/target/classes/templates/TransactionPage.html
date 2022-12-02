@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DI001 Personal Bank Web App</h1>
+<h2 th:text="'Welcome '+${session.customer.customerName}+'!!'"></h2>
+<form action="./transferFunds">
+	Enter Recepient Account ID : <input type="number" name="accountId"><br><br>
+	Enter Amount to Transfer : <input type="number" name="amount"><br><br>
+	<input type="submit" value="Transfer">
+</form>
+</body>
+</html>
