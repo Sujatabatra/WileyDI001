@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Movie Rating System</h1>
+	<h2 th:text="'Ratings Given by '+${userId}"></h2>
+	<table border="1">
+		<tr>
+			<th>Movie Name</th>
+			<th>Rating</th>
+		</tr>
+		<tr th:each="movieRating : ${movieRatings}">
+			<td th:text="${movieRating.movieName}"></td>
+			<td th:text="${movieRating.rating}"></td>
+		</tr>
+	</table>
+</body>
+</html>
